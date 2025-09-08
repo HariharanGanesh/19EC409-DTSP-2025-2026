@@ -1,16 +1,29 @@
-# EXP 1 A : COMPUTATION OF DFT USING DIRECT AND FFT
+EXP 1 A : COMPUTATION OF DFT USING DIRECT AND FFT
+AIM:
+To Obtain DFT and FFT of a given sequence in SCILAB.
+APPARATUS REQUIRED:
+PC installed with SCILAB.
 
-# AIM: 
+PROGRAM:
+clc; clear;
 
-# To Obtain DFT and FFT of a given sequence in SCILAB. 
+x = [1, 2, 3, 4];
+N = length(x);
 
-# APPARATUS REQUIRED: 
-PC installed with SCILAB. 
+disp("DFT using direct formula:");
 
-# PROGRAM: 
-// DISCRETE FOURIER TRANSFORM 
+X = zeros(1, N);
+for k = 0:N-1 for n = 0:N-1 X(k+1) = X(k+1) + x(n+1)exp((-%i2*%pikn)/N); end end disp(X, "DFT(X) =");
 
-# OUTPUT: 
+disp("DFT using FFT function:"); X_fft = fft(x, -1);
+disp(X_fft, "FFT(X) =");
 
+subplot(2,1,1); plot2d3(0:N-1, abs(X)); xlabel("Frequency Index k"); ylabel("|X(k)|"); title("Magnitude Spectrum using DFT");
 
-# RESULT: 
+subplot(2,1,2); plot2d3(0:N-1, abs(X_fft)); xlabel("Frequency Index k"); ylabel("|X(k)|"); title("Magnitude Spectrum using FFT");
+
+OUTPUT:
+<img width="757" height="709" alt="Screenshot 2025-09-08 152519" src="https://github.com/user-attachments/assets/b05d95ab-7e97-48f6-82b9-570ca72814a0" />
+
+RESULT:
+The DFT and FFT of the given sequence were successfully computed using SCILAB. Both direct computation and FFT function produced identical results, and the magnitude spectrum was plotted.
